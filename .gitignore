@@ -15,5 +15,5 @@ app/assets/images
 nbproject/*
 nbproject/private/*
 config/deploy.rb
-config/database/yml
+config/database.yml
 config/facebook.yml
