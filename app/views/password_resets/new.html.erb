@@ -1,0 +1,25 @@
+<%= page_heading("Reset Password") %>
+<% content_for :head do %>
+  <style type="text/css">
+    .content{ padding-top: 50px; }
+    .content .span6 { margin-top: 40px; min-height: 500px; }
+  </style>
+<% end %>
+<% if flash[:notice] %>
+  <div class="alert alert-error">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<div class="row">
+  <div class="span6 offset2">
+    <%= twitter_bootstrap_form_for :user, :html => { :class => 'form-horizontal'}, :url => password_resets_path do |user| %>
+      <%= user.fieldset 'Reset Password', :class => 'sign_up' do %>
+        <%= user.text_field :email %>
+        <%= user.actions do %>
+          <%= user.submit 'Reset' %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

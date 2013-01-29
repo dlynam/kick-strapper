@@ -1,0 +1,26 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "Kick-Strapper", root_path, :class => "brand" %>
+      <% if is_logged_in? %>
+        <ul class="nav pull-right">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Profile", user_path(logged_in_user) %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= logged_in_user.username %><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Settings", edit_user_path(logged_in_user) %></li>
+              <li><%= link_to "Logout", logout_path %></li>
+            </ul>
+          </li>
+        </ul>
+      <% else %>
+        <ul class="nav pull-right">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Register", register_path %></li>
+          <li><%= link_to "Login", login_path %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

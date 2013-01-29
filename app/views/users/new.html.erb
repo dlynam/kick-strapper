@@ -1,0 +1,35 @@
+<%= page_heading("Create a new account") %>
+<% content_for :head do %>
+  <style type="text/css">
+    .content{ padding-top: 50px; }
+    .content .span6 { margin-top: 40px; }
+  </style>
+<% end %>
+<% if @user.errors.any? %>
+  <div class="alert alert-error">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>Uh oh!</strong> Some errors occurred below.
+  </div>
+<% end %>
+<div class="row">
+  <div class="span6 offset2">
+      <a class="fb-login fb_button fb_norm fb_button_large" href="#" onclick="facebookLogin();return false;">
+        <span class="fb_button_text fb_norm">Signup with Facebook</span>
+      </a>
+    <%= twitter_bootstrap_form_for @user, :html => { :class => 'form-horizontal'} do |user| %>
+      <%= user.fieldset 'Welcome' do %>
+        <%= user.text_field :username %>
+        <%= user.email_field :email, :placeholder => 'me@example.com' %>
+        <%= user.password_field :password do %>
+          <span class="help-block">
+            Minimum of 5 characters
+          </span>
+        <% end %>
+        <%= user.password_field :password_confirmation, 'Confirm Password' %>
+        <%= user.actions do %>
+          <%= user.submit 'Create Account' %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

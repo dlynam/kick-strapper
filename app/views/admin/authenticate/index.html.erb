@@ -1,0 +1,7 @@
+<%= link_to "Home", root_path %>
+<br/><br/><br/>
+<%= form_tag :action => "verify" do %>
+  Admin Login
+  <%= password_field_tag :password %>
+  <%= submit_tag "Submit" %>
+<% end %>

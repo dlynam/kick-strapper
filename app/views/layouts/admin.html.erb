@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Style Admin</title>
+  <%= stylesheet_link_tag "application", "admin" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= yield :head %>
+</head>
+<body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <%= link_to "Admin", console_admin_authenticate_index_path, :class => "brand" %>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="content">
+      <%= yield %>
+    </div>
+  </div>
+  <%= yield :javascript %>
+</body>
+</html>

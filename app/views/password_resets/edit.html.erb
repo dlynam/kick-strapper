@@ -1,0 +1,30 @@
+<%= page_heading("Change Password") %>
+<% content_for :head do %>
+  <style type="text/css">
+    .content{ padding-top: 50px; }
+    .content .span6 { margin-top: 40px; min-height: 500px; }
+  </style>
+<% end %>
+<% if @user.errors.any? %>
+  <div class="alert alert-error">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>Uh oh!</strong> Some errors occurred below.
+  </div>
+<% end %>
+<div class="row">
+  <div class="span6 offset2">
+    <%= twitter_bootstrap_form_for :user, :html => { :class => 'form-horizontal'}, :url => password_reset_path(params[:id]), :method => :put do |user| %>
+      <%= user.fieldset 'Enter New Password', :class => 'sign_up' do %>
+        <%= user.password_field :password do %>
+          <span class="help-block">
+            Minimum of 5 characters<br/>
+          </span>
+        <% end %>
+        <%= user.password_field :password_confirmation, 'Confirm Password' %>
+        <%= user.actions do %>
+          <%= user.submit 'Save' %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

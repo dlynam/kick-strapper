@@ -1,0 +1,40 @@
+<%= page_heading("Email and Password") %>
+<% content_for :head do %>
+  <style type="text/css">
+  </style>
+<% end %>
+<div class="page-header">
+  <h1>Settings</h1>
+</div>
+<% if @user.errors.any? %>
+  <div class="alert alert-error">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>Uh oh!</strong> Some errors occurred below.
+  </div>
+<% end %>
+<div class="row">
+  <div class="span5">
+    <%= twitter_bootstrap_form_for @user, :html => { :class => 'form-horizontal'} do |user| %>
+      <%= user.fieldset 'Email' do %>
+        <%= user.email_field :email %>
+        <%= user.hidden_field :attribute, :value => "email" %>
+        <%= user.actions do %>
+          <%= user.submit 'Save' %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="span5 offset1">
+    <%= twitter_bootstrap_form_for @user, :html => { :class => 'form-horizontal'} do |user| %>
+      <%= user.fieldset 'Password' do %>
+        <%= user.password_field :current_password %>
+        <%= user.password_field :password %>
+        <%= user.password_field :password_confirmation %>
+        <%= user.hidden_field :attribute, :value => "password" %>
+        <%= user.actions do %>
+          <%= user.submit 'Save' %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
