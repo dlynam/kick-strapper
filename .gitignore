@@ -12,6 +12,7 @@ app/assets/images
 .DS_Store
 *.rake~
 *.sql
+*.swp
 nbproject/*
 nbproject/private/*
 config/deploy.rb

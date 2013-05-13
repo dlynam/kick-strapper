@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.2.13'
 gem 'mysql2'
 gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails'
-gem 'twitter_bootstrap_form_for', :git => 'git://github.com/10jack/twitter_bootstrap_form_for.git', :branch => "bootstrap-2.0"
+gem 'twitter_bootstrap_form_for', :git => 'git://github.com/dlynam/twitter_bootstrap_form_for.git', :branch => "bootstrap-2.0"
 gem 'koala'
 
 # Gems used only for assets and not required
